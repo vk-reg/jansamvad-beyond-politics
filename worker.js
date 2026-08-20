@@ -5,6 +5,12 @@ async function api(request,env){
  const url=new URL(request.url);
  if(!env.DB)return json({error:'D1 database is not configured yet.'},503);
  if(request.method==='GET'){
+  const slug=url.searchParams.get('slug');
+  if(slug){
+   const post=await env.DB.prepare('SELECT * FROM posts WHERE slug = ? AND status = ? LIMIT 1').bind(slug,'published').first();
+   if(!post)return json({error:'Post not found'},404);
+   return json({post});
+  }
   const limit=Math.min(Number(url.searchParams.get('limit')||20),100),category=url.searchParams.get('category'),district=url.searchParams.get('district');
   let sql='SELECT * FROM posts WHERE status = ?';const args=['published'];
   if(category){sql+=' AND category = ?';args.push(category)} if(district){sql+=' AND district = ?';args.push(district)}
