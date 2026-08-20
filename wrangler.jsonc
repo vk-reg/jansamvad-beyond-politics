@@ -1,8 +1,12 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "jansamvad-beyond-politics",
-  "pages_build_output_dir": ".",
+  "main": "worker.js",
   "compatibility_date": "2026-08-20",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  },
   "vars": {
     "SITE_NAME": "जनसंवाद – Beyond Politics"
   }
