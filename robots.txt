@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vk-reg.github.io/jansamvad-beyond-politics/sitemap.xml
