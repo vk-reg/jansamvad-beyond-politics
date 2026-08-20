@@ -1,0 +1,1 @@
+Official logo asset supplied by the project owner. The binary image is maintained as the brand reference.
